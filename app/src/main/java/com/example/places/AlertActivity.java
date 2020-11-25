@@ -1,7 +1,9 @@
 package com.example.places;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,7 +13,7 @@ public class AlertActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_alert);
+        Alert();
     }
 
     @Override
@@ -46,6 +48,21 @@ public class AlertActivity extends AppCompatActivity {
     @Override public void onDestroy(){
         super.onDestroy();
         Log.d(this.getClass().getSimpleName(), "Called onDestory");
+    }
+
+    public void Alert() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setMessage(R.string.hello);
+
+        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AlertActivity.this.finish();
+            }
+        });
+
+        alert.show();
+
     }
 
     /**
