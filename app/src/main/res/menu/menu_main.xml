@@ -8,29 +8,29 @@
         android:id="@+id/action_add"
         android:orderInCategory="100"
         android:title="@string/add"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_modify"
         android:orderInCategory="100"
         android:title="@string/modify"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_remove"
         android:orderInCategory="100"
         android:title="@string/remove"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_distance"
         android:orderInCategory="100"
         android:title="@string/distance"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_initial"
         android:orderInCategory="100"
         android:title="@string/initial"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>

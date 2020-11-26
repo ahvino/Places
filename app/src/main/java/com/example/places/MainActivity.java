@@ -1,10 +1,12 @@
 package com.example.places;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,12 +17,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        final Button button = findViewById(R.id.btn_alert);
+        //getActionBar();
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.inflateMenu(R.menu.menu_main);
+        setSupportActionBar(myToolbar);
+        //final Button button = findViewById(R.id.btn_alert);
         //button.setOnClickListener(new View);
     }
 
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     @Override
     public void onStart(){
@@ -79,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.action_add:
                 //
+                intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.action_modify:
