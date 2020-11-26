@@ -72,6 +72,36 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addButton(View view){
+        Log.d(this.getClass().getSimpleName(), "called add activity");
+        Intent intent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(intent);
+    }
+
+    public void modifyButton(View view){
+        Log.d(this.getClass().getSimpleName(), "called add activity");
+        Intent intent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(intent);
+    }
+
+    public void removeButton(View view){
+        Log.d(this.getClass().getSimpleName(), "called add activity");
+        Intent intent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(intent);
+    }
+
+    public void distanceButton(View view){
+        Log.d(this.getClass().getSimpleName(), "called add activity");
+        Intent intent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(intent);
+    }
+
+    public void bearingButton(View view){
+        Log.d(this.getClass().getSimpleName(), "called add activity");
+        Intent intent = new Intent(MainActivity.this, AddActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
