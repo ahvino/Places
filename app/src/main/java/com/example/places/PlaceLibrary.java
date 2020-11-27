@@ -16,6 +16,12 @@ public class PlaceLibrary {
 
     private HashMap<String, PlaceDescription> m_placeLib;
     private PlaceDescription m_place;
+    private static PlaceLibrary library = new PlaceLibrary();
+
+    public static PlaceLibrary getInstance()
+    {
+        return library;
+    }
 
     public PlaceLibrary()
     {
