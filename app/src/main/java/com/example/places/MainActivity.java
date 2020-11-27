@@ -9,7 +9,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,12 +19,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //getActionBar();
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(myToolbar);
-        //final Button button = findViewById(R.id.btn_alert);
-        //button.setOnClickListener(new View);
+
+        Spinner spinner = (Spinner) findViewById(R.id.place_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.place_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
     }
 
     @Override

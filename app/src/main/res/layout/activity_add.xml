@@ -6,6 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".AddActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="50dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <EditText
+            android:id="@+id/add_name"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="enter place here"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/add_description"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="enter description here"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/add_street"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:hint="enter street here"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/add_city"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:hint="city"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/add_state"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:hint="state"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/add_zip"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:hint="zip"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/save_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearButton"
+            android:text="@string/clear" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="saveButton"
+            android:text="@string/save" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
