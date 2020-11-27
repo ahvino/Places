@@ -1,15 +1,12 @@
 package com.example.places;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 
 /*********************************************
  Copyright 2020
@@ -20,19 +17,16 @@ import android.view.View;
  @Version 1 October 18th 2020
  *********************************************/
 
-public class AlertActivity extends AppCompatActivity {
+public class ModifyActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_modify);
 
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         myToolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(myToolbar);
-
-        Alert();
-
-
     }
 
     @Override
@@ -69,30 +63,6 @@ public class AlertActivity extends AppCompatActivity {
         Log.d(this.getClass().getSimpleName(), "Called onDestory");
     }
 
-    public void Alert() {
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage(R.string.hello);
-
-        alert.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                AlertActivity.this.finish();
-            }
-        });
-
-        alert.show();
-
-    }
-
-    /**
-     * Callback method for the button in the View (activity_dialog.xml)
-     * @param v
-     */
-    public void finishDialog(View v) {
-        android.util.Log.w(this.getClass().getSimpleName(), "called finishDialog()");
-        AlertActivity.this.finish();
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.d(this.getClass().getSimpleName(), "Called onOptionsItemSelected");
@@ -108,25 +78,25 @@ public class AlertActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.action_home:
-                intent = new Intent(AlertActivity.this, MainActivity.class);
+                intent = new Intent(ModifyActivity.this, MainActivity.class);
                 startActivity(intent);
                 return true;
 
             case R.id.action_add:
                 //
-                intent = new Intent(AlertActivity.this, AddActivity.class);
+                intent = new Intent(ModifyActivity.this, AddActivity.class);
                 startActivity(intent);
                 return true;
 
             case R.id.action_modify:
                 //
-                intent = new Intent(AlertActivity.this, ModifyActivity.class);
+                intent = new Intent(ModifyActivity.this, ModifyActivity.class);
                 startActivity(intent);
                 return true;
 
             case R.id.action_remove:
                 //
-                intent = new Intent(AlertActivity.this, RemoveActivity.class);
+                intent = new Intent(ModifyActivity.this, RemoveActivity.class);
                 startActivity(intent);
                 return true;
 

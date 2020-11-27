@@ -9,9 +9,22 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+/*********************************************
+ Copyright 2020
+ Author: Selik Samai
+ Email: selik.samai@asu.edu
+ Application: Places Application
+ Github: https://github.com/antonvinod/
+ @Version 1 October 18th 2020
+ *********************************************/
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,15 +33,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
         myToolbar.inflateMenu(R.menu.menu_main);
         setSupportActionBar(myToolbar);
 
+        //setSpinner();
+
+    }
+
+    public void setSpinner()
+    {
         Spinner spinner = (Spinner) findViewById(R.id.place_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.place_array, android.R.layout.simple_spinner_item);
+
+        ArrayList<PlaceDescription> places = PlaceLibrary.getPlaceArray();
+
+        ArrayList<String> arrayList = new ArrayList<>();
+
+        for(int i = 0; i < places.size(); i++)
+        {
+            arrayList.add(places.get(i).getName());
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arrayList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         spinner.setAdapter(adapter);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String placeName = parent.getItemAtPosition(position).toString();
+                Toast.makeText(parent.getContext(), "Selected: " + placeName, Toast.LENGTH_LONG).show();
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+
+            }
+        });
     }
 
     @Override
@@ -123,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
         Intent intent;
         switch (item.getItemId())
         {
+            case R.id.action_home:
+                intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                return true;
+
             case R.id.action_add:
                 //
                 intent = new Intent(MainActivity.this, AddActivity.class);
@@ -131,14 +177,19 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_modify:
                 //
+                intent = new Intent(MainActivity.this, ModifyActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.action_remove:
                 //
+                intent = new Intent(MainActivity.this, RemoveActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.action_distance:
                 //
+
                 return true;
 
             case R.id.action_initial:

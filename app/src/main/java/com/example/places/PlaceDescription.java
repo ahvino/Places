@@ -15,6 +15,7 @@ import java.util.Vector;
  Github: https://github.com/antonvinod/
  @Version 1 October 18th 2020
  *********************************************/
+
 public class PlaceDescription {
 
     private String name, description, street, city, state, zip, category, title;

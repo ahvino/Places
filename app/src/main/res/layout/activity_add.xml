@@ -61,14 +61,14 @@
 
         <EditText
             android:id="@+id/add_state"
-            android:layout_width="50dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="state"
             android:inputType="text" />
 
         <EditText
             android:id="@+id/add_zip"
-            android:layout_width="40dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:hint="zip"
             android:inputType="text" />
@@ -99,6 +99,5 @@
             android:onClick="saveButton"
             android:text="@string/save" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

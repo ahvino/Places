@@ -18,12 +18,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-
     <Spinner
         android:id="@+id/place_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
         android:prompt="@string/place"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,51 +32,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/button_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/place_spinner">
 
-        <TextView
+        <EditText
             android:id="@+id/name"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="" />
+            android:inputType="text"
+            android:text="name" />
 
         <EditText
             android:id="@+id/description"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:text="description" />
 
         <EditText
             android:id="@+id/street"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:text="street" />
 
         <EditText
             android:id="@+id/add_city"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:text="city" />
 
         <EditText
             android:id="@+id/state"
-            android:layout_width="50dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:text="state" />
 
         <EditText
             android:id="@+id/zip"
-            android:layout_width="40dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:text="zip" />
-
 
     </LinearLayout>
 
@@ -86,10 +88,9 @@
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintBottom_toTopOf="@+id/circle_layout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_name">
 
@@ -119,7 +120,6 @@
         android:id="@+id/circle_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="3dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,7 +139,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="bearingButton"
-            android:text="@string/distance" />
+            android:text="@string/initial" />
 
         <Button
             android:id="@+id/btn_alert"
@@ -147,8 +147,6 @@
             android:layout_height="wrap_content"
             android:onClick="startDialog"
             android:text="@string/alert" />
-
-
     </LinearLayout>
 
 

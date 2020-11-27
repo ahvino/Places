@@ -1,19 +1,38 @@
 package com.example.places;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+/*********************************************
+ Copyright 2020
+ Author: Selik Samai
+ Email: selik.samai@asu.edu
+ Application: Places Application
+ Github: https://github.com/antonvinod/
+ @Version 1 October 18th 2020
+ *********************************************/
+
 public class AddActivity extends AppCompatActivity {
+
+    public PlaceDescription place = new PlaceDescription();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        myToolbar.inflateMenu(R.menu.menu_main);
+        setSupportActionBar(myToolbar);
+
     }
 
     @Override
@@ -72,7 +91,6 @@ public class AddActivity extends AppCompatActivity {
         }
         else
         {
-            PlaceDescription place = new PlaceDescription();
             place.setName(nameTxt.getText().toString());
             place.setDescription(descriptionTxt.getText().toString());
             place.setStreet(streetTxt.getText().toString());
@@ -80,17 +98,19 @@ public class AddActivity extends AppCompatActivity {
             place.setState(stateTxt.getText().toString());
             place.setZip(zipTxt.getText().toString());
 
-            PlaceLibrary lib = PlaceLibrary.getInstance();
-
-            lib.addPlace(place);
         }
-
 
         return isValid;
     }
     public void saveButton(View view)
     {
+        if(verifyInput())
+        {
+            PlaceLibrary lib = PlaceLibrary.getInstance();
 
+            PlaceDescription place = new PlaceDescription();
+            lib.addPlace(place);
+        }
     }
 
     public void clearButton(View view)
@@ -98,4 +118,52 @@ public class AddActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(this.getClass().getSimpleName(), "Called onOptionsItemSelected");
+
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+
+        int id = item.getItemId();
+        //noinspection SimplifiableIfStatement
+
+        Intent intent;
+        switch (item.getItemId())
+        {
+            case R.id.action_home:
+                intent = new Intent(AddActivity.this, MainActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_add:
+                //
+                intent = new Intent(AddActivity.this, AddActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_modify:
+                //
+                intent = new Intent(AddActivity.this, ModifyActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_remove:
+                //
+                intent = new Intent(AddActivity.this, RemoveActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.action_distance:
+                //
+
+                return true;
+
+            case R.id.action_initial:
+                //
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
